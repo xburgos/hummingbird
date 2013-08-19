@@ -1,0 +1,7 @@
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile group: 'org.eclipse.jgit' name: 'jgit' version: '3.0.0.201306101825-r'
+}
