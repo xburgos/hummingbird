@@ -1,4 +1,6 @@
 apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'eclipse'
 
 task "create-dirs" << {
 	sourceSets*.java.srcDirs*.each { it.mkdirs() }
@@ -6,14 +8,21 @@ task "create-dirs" << {
 }
 
 repositories {
+	mavenLocal()
 	mavenCentral()
 }
 
 dependencies {
-	compile group: 'org.eclipse.jgit', name: 'jgit', version: '3.0.0.201306101825-r'
+	compile group: 'org.eclipse.jgit', name: 'org.eclipse.jgit', version: '3.0.0.201306101825-r'
 	compile group: 'org.springframework', name: 'spring-context', version: '3.2.3.RELEASE'
+	compile group: 'org.springframework', name: 'spring-test', version: '3.2.3.RELEASE'
+	compile group: 'org.springframework', name: 'spring-core', version: '3.2.3.RELEASE'
 	compile group: 'com.google.code.gson', name: 'gson', version: '2.2.4'
 	
+	testCompile 'org.codehaus.groovy:groovy-all:2.0.5'
+
 	testCompile group: 'org.spockframework', name: 'spock-spring', version: '0.7-groovy-2.0'
 	testCompile group: 'org.spockframework', name: 'spock-core', version: '0.7-groovy-2.0'
+
 }
+
